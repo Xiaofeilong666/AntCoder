@@ -19,7 +19,6 @@
 .idea
 target/
 .iml
-publicMap.xml
 db/
 
 

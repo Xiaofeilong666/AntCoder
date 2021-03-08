@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <map key="path_3" value="film"/>
+  <map key="package" value="com.ant.film"/>
+  <map key="path_2" value="ant"/>
+  <map key="dbpassword" value="root"/>
+  <map key="author" value="ant"/>
+  <map key="projectComment" value="\u8682\u8681\u5546\u57ce"/>
+  <map key="project" value="film"/>
+  <map key="dbuser" value="root"/>
+  <map key="path_1" value="com"/>
+  <map key="db" value="film"/>
+  <map key="path_all" value="com/ant/film"/>
+</root>
