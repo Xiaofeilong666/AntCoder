@@ -1,6 +1,6 @@
 package entity;
 
-public class Result {
+public class WebResult {
 
 	
 	private boolean flag;
