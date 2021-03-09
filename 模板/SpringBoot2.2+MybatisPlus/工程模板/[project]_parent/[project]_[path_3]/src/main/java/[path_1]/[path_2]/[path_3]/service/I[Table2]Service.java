@@ -13,7 +13,7 @@ import java.util.Map;
  *
  */
 @Service
-public class I[Table2]Service extends IService<[Table2]>{
+public interface I[Table2]Service extends IService<[Table2]>{
         /**
          * 分页+条件查询
          */

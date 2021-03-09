@@ -14,7 +14,7 @@
 
 ##### url 
 
-> /[table2]/findAll.do
+> /[table2]/findList
 
 ##### http请求方式 
 
@@ -40,7 +40,7 @@
 
 ##### url
 
-> /[table2]/findPage.do
+> /[table2]/findPage
 
 ##### http请求方式
 
@@ -76,7 +76,7 @@ total:100}
 
 ##### url
 
-> /[table2]/findList.do
+> /[table2]/findList
 
 ##### http请求方式
 
@@ -91,7 +91,7 @@ total:100}
 例子：
 
 ```
-POST /[table2]/findList.do
+POST /[table2]/findList
 {
 <JSON.txt>
 }

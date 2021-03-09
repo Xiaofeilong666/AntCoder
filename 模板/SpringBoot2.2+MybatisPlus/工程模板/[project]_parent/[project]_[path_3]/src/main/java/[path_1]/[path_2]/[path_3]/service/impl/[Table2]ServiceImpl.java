@@ -34,7 +34,7 @@ public class [Table2]ServiceImpl extends ServiceImpl<[Table2]Mapper, [Table2]> i
 	 * @param size 每页的长度
 	 * @return
 	 */
-	public IPage<[Table2]> findPage(Map<String,Object> searchMap, int page, int size){
+	public IPage<[Table2]> findPage( int page, int size,Map searchMap){
 		//构建查询条件
 		QueryWrapper<[Table2]> wrapper = new QueryWrapper<>();
 		//构建分页对象

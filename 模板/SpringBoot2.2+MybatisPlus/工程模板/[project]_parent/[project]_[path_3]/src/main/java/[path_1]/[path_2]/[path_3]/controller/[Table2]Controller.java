@@ -1,13 +1,12 @@
 package [package].controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import [package].pojo.[Table2];
-import [package].service.[Table2]Service;
+import [package].service.I[Table2]Service;
+
+import java.util.Map;
 
 import com.aym.common.result.WebResult;
 /**
@@ -40,61 +39,42 @@ public class [Table2]Controller {
 	public WebResult findById(@PathVariable Integer id){
 		return WebResult.success([table2]Service.getById(id));
 	}
-
-
-
-/**
- * 分页+多条件查询
- * @param searchMap 查询条件封装
- * @param page 页码
- * @param size 页大小
- * @return 分页结果
- */
-	@RequestMapping(value="/search/{page}/{size}",method=RequestMethod.POST)
-	public WebResult findSearch(@RequestBody Map searchMap , @PathVariable int page, @PathVariable int size){
-		Page<[Table2]> pageList = I[table2]Service.findSearch(searchMap, page, size);
-		return  new Result(true,StatusCode.OK,"查询成功",  new PageResult<[Table2]>(pageList.getTotalElements(), pageList.getContent()) );
-	}
-
 	/**
-     * 根据条件查询
-     * @param searchMap
-     * @return
-     */
-    @RequestMapping(value="/search",method = RequestMethod.POST)
-    public WebResult findSearch( @RequestBody Map searchMap){
-        return new Result(true,StatusCode.OK,"查询成功",[table2]Service.findSearch(searchMap));
-    }
-	
-	/**
-	 * 增加
-	 * @param [table2]
+	 * 分页+条件查询
 	 */
-	@RequestMapping(method=RequestMethod.POST)
-	public Result add(@RequestBody [Table2] [table2]  ){
-		[table2]Service.add([table2]);
-		return new WebResult(true,StatusCode.OK,"增加成功");
+	@PostMapping("/findPage/{page}/{size}")
+	public WebResult findPage(@PathVariable int page, @PathVariable int size, @RequestBody Map searchMap){
+		return WebResult.success([table2]Service.findPage(page,size,searchMap));
 	}
-	
+
+
 	/**
-	 * 修改
-	 * @param [table2]
+	 * 增加数据
 	 */
-	@RequestMapping(value="/{id}",method= RequestMethod.PUT)
-	public Result update(@RequestBody [Table2] [table2], @PathVariable [keyType] [key2] ){
-		[table2].set[Key2]([key2]);
-		[table2]Service.update([table2]);
-		return new WebResult(true,StatusCode.OK,"修改成功");
+	@PostMapping("/add")
+	public WebResult add(@RequestBody [Table2] [table2]){
+			[table2]Service.save([table2]);
+			return WebResult.success("添加成功");
 	}
-	
 	/**
-	 * 删除
-	 * @param [key2]
+	 *修改数据
 	 */
-	@RequestMapping(value="/{id}",method= RequestMethod.DELETE)
-	public Result delete(@PathVariable [keyType] [key2]){
-		[table2]Service.deleteById([key2]);
-		return new WebResult(true,StatusCode.OK,"删除成功");
+	@PostMapping("/update")
+	public WebResult update(@RequestBody [Table2] [table2]){
+			[table2]Service.updateById([table2]);
+			return WebResult.success("修改成功");
 	}
-	
+
+
+	/**
+	 * 删除数据
+	 */
+	@DeleteMapping("/deleteById/{id}")
+	public WebResult delete(@PathVariable int id){
+		[table2]Service.removeById(id);
+		return WebResult.success("删除成功");
+	}
+
+
+
 }
